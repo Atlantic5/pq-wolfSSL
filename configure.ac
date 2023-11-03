@@ -8,6 +8,8 @@
 # This file was modified due to the integration of post-quantum cryptography into wolfSSL library
 # This work has been partially founded by the German Federal Ministry of Education and Research (BMBF) under the project FLOQI (ID 16KIS1074).
 
+AC_CONFIG_MACRO_DIRS([m4])
+LT_INIT([disable-static win32-dll])
 AC_COPYRIGHT([Copyright (C) 2006-2020 wolfSSL Inc.])
 AC_PREREQ([2.63])
 AC_INIT([wolfssl],[4.7.0],[https://github.com/wolfssl/wolfssl/issues],[wolfssl],[https://www.wolfssl.com])
@@ -45,7 +47,7 @@ fi
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_CANONICAL_HOST
-AC_CONFIG_MACRO_DIR([m4])
+#AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([1.11 -Wall -Werror -Wno-portability foreign tar-ustar subdir-objects no-define color-tests])
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
@@ -55,7 +57,7 @@ AC_ARG_PROGRAM
 AC_CONFIG_HEADERS([config.h:config.in])
 
 LT_PREREQ([2.2])
-LT_INIT([disable-static win32-dll])
+
 
 #shared library versioning
 WOLFSSL_LIBRARY_VERSION=28:0:4
